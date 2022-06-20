@@ -1,0 +1,383 @@
+# isUnique: Check if a string has unique characters
+# Example: 'arynertyuiopa' => False
+# Example: 'tiger' => True
+# Example: 'FutingWayHerMoxg' => True
+
+# Steps to solve this algorithm
+# 1. Listen
+# 2. Example
+# 3. Brute Force
+# 4. Optimize
+# 5. Walkthrough (Understand code)
+# 6. Implement and Write Test cases
+
+def isUnique(inp="FutinWayHerMoxg"):  # Space: O(N), Runtime: O(N)
+    # map = {}
+    # for c in inp.lower():
+    #     map[c] = map.get(c, 0)
+    #     if map[c] != 0: return False
+    #     map[c] += 1
+    # return True
+
+    # return len(set(inp)) == len(inp)  # Space: O(N), Runtime: O(N) (faster due to using python's inbuilt operations)
+
+    # for i, c1 in enumerate(inp.lower()):
+    #     for j, c2 in enumerate(inp.lower()):
+    #         if c1 == c2 and i != j:
+    #             return False
+    # return True  # Without any Hashmaps => Space: O(1), Time: O(N^2)
+    inp = inp.lower()
+    for i in range(len(inp)):
+        for j in range(i + 1,
+                       len(inp)):  # (N-1 + N-2 + ...  2 + 1 + 0) => (0 + 1 + 2 + ... + N-2 + N-1) => (N(N+1))/2 => O(sqrt(N))
+            if inp[i] == inp[j]:
+                return False
+    return True  # Improvement on the previous solution => Space: O(1), Time: O(N^2)
+
+
+# Q2:
+# Example: abc (string)
+# abc, acb, bac, bca, cab, cba (permutations)
+
+def checkPermutation(s1="aryan", s2="arayn"):
+    map1 = {}
+    map2 = {}
+
+    if len(s1) != len(s2): return False
+
+    for c in s1:
+        map1[c] = map1.get(c, 0) + 1
+    for c in s2:
+        map2[c] = map2.get(c, 0) + 1
+
+    if len(map1.keys()) != len(map2.keys()): return False
+
+    for c in map1.keys():
+        if c not in map2 or map1[c] != map2[c]: return False
+    return True  # Space: O(N), Time: O(N)
+
+
+# Q3:URLIFY
+# two inputs: String, length of string
+# inp = "Mr John Smith"
+# length = len(inp)
+# output => "MR%20John%20Smith"
+
+def urlify(inp="Mr  John Smith", length=len("Mr John Smith")):
+    # arr = inp.split()
+    # result = ""
+    # for str in arr:
+    #     result = result + str + '%20'
+    # return result[:-3]  # Space: O(N), Time: O(N) ????
+
+    res = ""
+    for i, c in enumerate(inp):
+        if c == ' ' and i > 0 and inp[i - 1] != ' ':
+            res += '%20'
+        elif c == ' ':
+            pass
+        else:
+            res += c
+    return res  # Space: O(N), Time: O(N) ???? (Sol can be translated to java using StringBuilder)
+
+    # TODO: IN-Place Time: O(N) and Space: O(1) ????
+
+
+# Q4. Palindrome Permutation
+# REMEMBER: Palindrome => nitin => nitin (YES)
+# Ex: "taco cat" => "tact coa"
+# Essentially, We get word => Check if its a permutation of a palindrome
+
+# ASCII Range => [65, 90] Big Alphabets, [97, 122] small Alphabets
+def isPermutationOfPalindrome(str="tact coa"):
+    hash = {}
+    real_len = 0
+    for c in str:
+        if c.isalpha():
+            real_len += 1
+            hash[c] = hash.get(c, 0) + 1
+
+    counter = 0
+    for c in hash.keys():
+        if hash[c] != 2: counter += 1
+
+    return counter == 0 if real_len % 2 == 0 else counter == 1  # Space: O(N), Time: O(N)
+
+
+# Q5. is One Away
+# Three Operations
+#   1. Insert a Chararacter
+#   2. Remove a Character
+#   3. Replace a Character
+# Example => inp: "swordfish" => out: "swordfishy" (same length), "swodfish" (len-1), "sworyfish" (len+1)
+
+def isOneAway(str1="sworfishh", str2="swordfishh"):
+    # Check for zero edits
+    if abs(len(str1) - len(str2)) > 1: return False
+
+    hash1 = {}
+    hash2 = {}
+    for c in str1:
+        hash1[c] = hash1.get(c, 0) + 1
+    for c in str2:
+        hash2[c] = hash2.get(c, 0) + 1
+
+    oneAwayCounter = 0
+
+    # str1 (smaller), (same), (bigger)
+    for c in hash1.keys():
+        if hash1[c] != hash2.get(c, 0):
+            oneAwayCounter += 1
+
+    return oneAwayCounter <= 1  # Space: O(N + M), Time: O(N + M)
+
+
+# Q6. String compression
+# Example: "aaaabbbcdeeefffggggasndaasddd" => "a4b3c1d1e3f3g4a1s1n1d1a2s1d3"
+# Example: "aabcccccaaa" => "a2b1c5a3"
+
+# def compressString(string="aabcccccaaa"):
+#     compressedLength = getLenOfCompression(string)
+#     if compressedLength >= len(string): return string
+#     cur_char = None
+#     count = 1
+#     result = ""
+#     for c in string:
+#         if cur_char is not c:
+#             if cur_char is not None:
+#                 result = result + cur_char + str(count)
+#             cur_char = c
+#             count = 1
+#         else:
+#             count += 1
+#     return result + cur_char + str(count) # Space: O(1) (as we don't count output value), Time: O(N)
+#
+# def getLenOfCompression(string="aabcccccaaa"):
+#     length = 0
+#     cur_char = None
+#     cur_len = 0
+#     for c in string:
+#         if c is not cur_char:
+#             if c is not None:
+#                 length += 2
+#             cur_char = c
+#             cur_len = 1
+#         else:
+#             cur_len += 1
+#     return length
+
+#Q7: Rotate Matrix
+# Input:
+          #0 #1 #2 #3
+matrix = [[1, 2, 2, 1], #0
+          [2, 3, 3, 2], #1
+          [3, 4, 4, 3], #2
+          [4, 5, 5, 4]] #3
+
+# (0, 1) => (1, 3) => (c, N - r - 1)
+# (1, 3) => (3, 2)
+# (3, 2) => (2, 0)
+
+
+# Output:
+# [[4, 3, 2, 1],
+#  [5, 4, 3, 2],
+#  [5, 4, 3, 2],
+#  [4, 3, 2, 1]]
+
+# (0, 0) => (0, 3)
+# (0, 1) => (1, 3)
+# (0, 2) => (2, 3)
+# (0, 3) => (3, 3)
+
+# (1, 0) => (0, 2)
+# (1, 1) => (1, 2)
+# (1, 2) => (2, 2)
+# (1, 3) => (3, 2)
+
+# (2, 0) => (0, 1)
+# (2, 1) => (1, 1)
+# (2, 2) => (2, 1)
+# (2, 3) => (3, 1)
+
+# (3, 0) => (0, 0)
+# (3, 1) => (1, 0)
+# (3, 2) => (2, 0)
+# (3, 3) => (3, 0)
+
+# Output:
+# [[4, 3, 2, 1],
+#  [5, 4, 3, 2],
+#  [5, 4, 3, 2],
+#  [4, 3, 2, 1]]
+
+def rotateMatrix(matrix):
+    print('INPUT')
+    printMatrix(matrix=matrix)
+    print('#################')
+    print('PROGRESS')
+    row, col = len(matrix), len(matrix[0])
+    N = len(matrix) - 1
+    #print(f"{row}, {col}")
+    for r in range(row):
+        for c in range(col):
+            new_row = c
+            new_col = N - r
+            #print(new_row, new_col)
+            temp = matrix[r][c]
+            matrix[r][c] = matrix[new_col][new_row]
+            matrix[new_col][new_row] = temp
+        printMatrix(matrix)
+        print('###############')
+    print('OUTPUT')
+    printMatrix(matrix=matrix)
+
+def printMatrix(matrix):
+    row, col = len(matrix), len(matrix[0])
+    for r in range(row):
+        res = "["
+        for c in range(col):
+            res = res + " " + str(matrix[r][c]) + ","
+        res = res[:-1] + "]"
+        print(res)
+
+
+# Q8 Zero matrix
+
+          #0 #1 #2 #3
+matrix = [[1, 2, 2, 1], #0
+          [1, 3, 1, 2], #1
+          [0, 4, 0, 3], #2
+          [4, 1, 5, 4]] #3
+
+def zeroMatrix(matrix):
+    N = len(matrix)
+
+    # # Record all the zero locations
+    # idxRecord = []
+    # for r in range(N):
+    #     for c in range(N):
+    #         if matrix[r][c] == 0:
+    #             idxRecord.append((r, c))
+    #
+    # def fillRowAndColWithZeros(r, c):
+    #     # Change the row to zero
+    #     for j in range(N):
+    #         matrix[r][j] = 0
+    #
+    #     for i in range(N):
+    #         matrix[i][c] = 0
+    #
+    # # Modify the matrix
+    # for r, c in idxRecord:
+    #     fillRowAndColWithZeros(r, c)
+    #
+    # printMatrix(matrix)  # Space: N^2, Time: N^2
+
+    # # Space: (N)
+    # rowIndexes = set()
+    # colIndexes = set()
+    # for r in range(N):  # Time: N^2
+    #     for c in range(N):
+    #         if matrix[r][c] == 0:
+    #             rowIndexes.add(r)
+    #             colIndexes.add(c)
+    #
+    # # WorstCase Time: O(N^2)
+    # def changeRowsToZero(rows):
+    #     for r in rows:
+    #         for c in range(N):
+    #             matrix[r][c] = 0
+    #
+    # def changeRowsToCols(cols):
+    #     for c in cols:
+    #         for r in range(N):
+    #             matrix[r][c] = 0
+    #
+    # # WorstCase Time: O(N^2)
+    # if len(rowIndexes) > 0:
+    #     changeRowsToZero(rowIndexes)
+    #
+    # # WorstCase Time: O(N^2)
+    # if len(colIndexes) > 0:
+    #     changeRowsToCols(colIndexes)
+    #
+    # printMatrix(matrix)  # Space: O(N), Time: O(N^2)
+
+    firstRowHasZero = False
+    firstColHasZero = False
+
+    # Check if first row has zero
+    for c in range(N):
+        if matrix[0][c] == 0:
+            firstRowHasZero = True
+            break
+
+    # Check if first col has zero
+    for r in range(N):
+        if matrix[r][0] == 0:
+            firstColHasZero = True
+            break
+
+    # record all zero locations
+    for r in range(N):
+        for c in range(1, N):
+            if matrix[r][c] == 0:
+                matrix[0][c] = 0
+                matrix[r][0] = 0
+
+    # Nullify all zero-containing rows
+    for r in range(1, N):
+        if matrix[r][0] == 0:
+            for c in range(N):
+                matrix[r][c] = 0
+
+    # Nullify all zero-containing columns
+    for c in range(N):
+        if matrix[0][c] == 0:
+            for r in range(N):
+                matrix[r][c] = 0
+
+    # Nullify first row
+    if firstRowHasZero:
+        for c in range(N):
+            matrix[0][c] = 0
+
+    # Nullify first column
+    if firstColHasZero:
+        for r in range(N):
+            matrix[r][0] = 0
+
+    printMatrix(matrix)  # Space: O(1), Time: O(N^2)
+
+#Q9 String Rotation
+
+def isSubstring(s1, s2):
+    if not s1 or not s2 or len(s1) != len(s2):
+        return False
+
+    hashmap = {}
+    hashmap2 = {}
+    for c in s1:
+        hashmap[c] = hashmap.get(c, 0) + 1
+
+    for c in s2:
+        hashmap2[c] = hashmap2.get(c, 0) + 1
+
+    for c in hashmap.keys():
+        if hashmap2.get(c, -1) == -1 or hashmap[c] != hashmap2[c]:
+            return False
+    return True  # Space: O(N), Time: O(N)
+
+
+# Test Cases
+# print(isUnique())
+# print(checkPermutation())
+# print(urlify())
+# print(isPermutationOfPalindrome())
+# print(isOneAway())
+# print(compressString("aaaaabc"))
+# print(rotateMatrix(matrix))
+# print(sample_matrix())
+#rint(zeroMatrix(matrix))
+print(isSubstring("teaeaes", "esteaae"))
