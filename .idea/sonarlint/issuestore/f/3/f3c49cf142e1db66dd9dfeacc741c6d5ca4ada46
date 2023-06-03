@@ -1,0 +1,53 @@
+
+Gpython:S1066f"/Merge this if statement with the enclosing one.(÷¶Ñº
+Hpython:S1066¾"/Merge this if statement with the enclosing one.(Ü ¯è
+upython:S117"YRename this local variable "adjNodes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù”ŸÙşÿÿÿÿ
+mpython:S1542"URename function "checkCycleInDAG" to match the regular expression ^[a-z_][a-z0-9_]*$.(Éó
+@python:S108")Either remove or fill this block of code.(ã‘Û¾
+;python:S125,"Remove this commented out code.(‰œ§Úşÿÿÿÿ
+;python:S125?"Remove this commented out code.(˜íÃÿÿÿÿÿ
+;python:S125F"Remove this commented out code.(½‘–‡úÿÿÿÿ
+;python:S125H"Remove this commented out code.(Ñëõ£ùÿÿÿÿ
+ppython:S117k"YRename this local variable "totalSum" to match the regular expression ^[_a-z][a-z0-9_]*$.(º”±ê
+qpython:S3776M"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(™Üöµøÿÿÿÿ
+npython:S1542U"QRename function "getAdjNodes" to match the regular expression ^[a-z_][a-z0-9_]*$.(ãšÙûÿÿÿÿ
+ppython:S117^"YRename this local variable "totalSum" to match the regular expression ^[_a-z][a-z0-9_]*$.(º”±ê
+mpython:S117€"VRename this local variable "adjN1" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïòò%
+npython:S117"VRename this local variable "adjN2" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤…ïæ
+spython:S117‚"VRename this local variable "adjN3" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔÜÃüÿÿÿÿ
+spython:S117ƒ"VRename this local variable "adjN4" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø¿Û¦ÿÿÿÿÿ
+ipython:S1542~"QRename function "getAdjNodes" to match the regular expression ^[a-z_][a-z0-9_]*$.(òæõÚ
+ppython:S117¤"XRename this local variable "adjNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ïŠ—
+npython:S117¶"VRename this parameter "numCourses" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï¦¸
+qpython:S117º"ZRename this local variable "prereqMap" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÑ•D
+mpython:S1542¶"TRename function "courseSchedule" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï¦¸
+mpython:S3776¶"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ï¦¸
+zpython:S117È"]Rename this local variable "prereqCourse" to match the regular expression ^[_a-z][a-z0-9_]*$.(°Üùùÿÿÿÿ
+ppython:S117"XRename this local variable "newNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ×ß
+ipython:S1542ã"PRename function "cloneGraph" to match the regular expression ^[a-z_][a-z0-9_]*$.(±ÿ
+rpython:S117‰"[Rename this local variable "adjNewNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡˜‡
+opython:S117‡"XRename this local variable "adjNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔÇ°
+ppython:S117„"SRename this parameter "newNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôáë­úÿÿÿÿ
+ppython:S1542“"WRename function "swimInRisingWater" to match the regular expression ^[a-z_][a-z0-9_]*$.(Óˆ­Õ
+mpython:S3776“"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Óˆ­Õ
+jpython:S1542—"QRename function "getAdjNodes" to match the regular expression ^[a-z_][a-z0-9_]*$.(òæõÚ
+<python:S125´"Remove this commented out code.(—Õçøÿÿÿÿ
+python:S117õ"bRename this local variable "isVertex1RootNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(…¨ËÙÿÿÿÿÿ
+python:S117ö"bRename this local variable "isVertex2RootNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ä™½ºıÿÿÿÿ
+upython:S1542Ù"]Rename function "findRedundantConnection" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ò·…
+upython:S117ï"XRename this local variable "rootSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â¦¿øÿÿÿÿ
+jpython:S1542í"QRename function "getRootEdge" to match the regular expression ^[a-z_][a-z0-9_]*$.(ûşÀÃ
+tpython:S117„"\Rename this local variable "adjAirports" to match the regular expression ^[_a-z][a-z0-9_]*$.(«ñ È
+qpython:S117ˆ"YRename this local variable "fAirport" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºü¿ä
+qpython:S117ˆ"YRename this local variable "tAirport" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºü¿ä
+wpython:S117‘"ZRename this local variable "ticketCnt" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü‚Õùÿÿÿÿ
+vpython:S117’"^Rename this local variable "visitAirports" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ËÚ
+xpython:S1542ƒ"ZRename function "reconstructItinerary" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÃŒ»„ÿÿÿÿÿ
+Kpython:S1481‘"-Remove the unused local variable "ticketCnt".(ü‚Õùÿÿÿÿ
+upython:S117œ"XRename this local variable "adjNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ«òÂüÿÿÿÿ
+lpython:S117•"URename this parameter "ticketCnt" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç×®
+<python:S125"Remove this commented out code.(šÉ«×ıÿÿÿÿ
+mpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÁÆ€ö
+hpython:S117®"PRename this parameter "wIdx" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğÏÖ³
+Gpython:S1940°")Use the opposite operator (">=") instead.(Âëşÿÿÿÿ
+7python:S125Æ"Remove this commented out code.(ş®•‘

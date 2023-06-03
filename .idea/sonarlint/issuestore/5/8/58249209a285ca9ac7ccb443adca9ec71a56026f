@@ -1,0 +1,5 @@
+
+6python:S125"Remove this commented out code.(×ˆ¼þ
+;python:S125"Remove this commented out code.(£‰³Ìÿÿÿÿÿ
+upython:S117$"YRename this local variable "sumScore" to match the regular expression ^[_a-z][a-z0-9_]*$.(èûœÄþÿÿÿÿ
+lpython:S1542"TRename function "countSubarrays" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ø²ªÓ

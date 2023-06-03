@@ -112,6 +112,7 @@ class LinkedList:
         #         prevNode = immNext
         #         curNode = immNext.next
 
+    # Q2
     def findKthToLast(self, k):
         # Assuming length property is not given
         if not self.head:

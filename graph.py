@@ -10,6 +10,7 @@ class GraphNode:
 
     def clear_visited(self):
         self.visited = False
+        self.visited = False
 
 
 class GraphAlgorithm:

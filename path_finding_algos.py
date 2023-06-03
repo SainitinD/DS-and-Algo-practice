@@ -2,6 +2,13 @@ import heapq
 from queue import Queue
 
 def checkCycleInDAG(edges, n, s):
+    """
+
+    :param edges:
+    :param n:
+    :param s:
+    :return:
+    """
     adjNodes = {}
     visited_set = set()
 
@@ -31,28 +38,28 @@ def djikstra(times, n, k):
     # predecessor_map = {} (not needed for network delay)
     graph = {}
 
-    # Time: O(|V|)
+    # Time: O(|V|) => Creates the adjacent list
     for node in range(1, n + 1):
         graph[node] = []
        # predecessor_map[node] = None
 
     # Time: O(|E|)
     for edge in times:
-        graph[edge[0]].append(edge)
+        graph[edge[0]].append(edge)  # Update the adjacent list
+    print(graph)
 
     # TIME: O(|V|)
     for v in graph.keys():
-        distance_map[v] = float("inf")
+        distance_map[v] = float("inf")  # Setup the distance map (Initialize all weights to infinity
 
-    distance_map[k] = 0
-    # predecessor_map[k] = None
+    distance_map[k] = 0  # Set the origin node to have a distance of 0
 
     # Time: O(|V|^2)
-    queue = [[0, k]]
+    queue = [[0, k]]  # [[weight, sourceNode]]
     heapq.heapify(queue)
 
     while len(queue) > 0:
-        w, v = heapq.heappop(queue)
+        w, v = heapq.heappop(queue)  # Each iteration, pop the node with the lowest weight
         # cur_visited = set(v)
         if v is not visited:
             visited.add(v)
@@ -216,6 +223,7 @@ class Node:
         self.neighbors = neighbors
 
 
+
 def cloneGraph(node):
     # Biggest problem was to figure out the inputs and the ouputs.
     # The input is the first node with adjacent lists
@@ -297,42 +305,42 @@ def swimInRisingWater(grid):
         time += 1
     return time  # Time: O(|V| + |E|) (?? idk homie but prolly worse), Space: O(V^2)
 
-def reconstructItinerary(tickets):
-    # Create the adjacent list
-    fromMap = {}
-    for ticket in tickets:
-        fAirport, tAirport = ticket
-        fromMap[fAirport] = fromMap.get(fAirport, [])
-        fromMap[fAirport].append(tAirport)
-
-    # Sort the adjacent list
-    for fAirport in fromMap.keys():
-        fromMap[fAirport].sort()
-
-    # Dfs
-    def dfs(fAirport):
-        returnString.append(fAirport)
-        if len(visited) == len(fromMap.keys()) and len(active) == len(tickets):
-            output = [x for x in returnString]
-            return True
-        visited.add(fAirport)
-        for tAirport in fromMap[fAirport]:
-            if tAirport not in active:
-                active.append(tAirport)
-                if dfs(tAirport):
-                    return True
-                active.remove(tAirport)
-        returnString.remove(fAirport)
-        return False
-
-    visited = set()
-    # active = ['JFK']
-    active = 1
-    returnString = []
-    output = []
-    for fAirport in fromMap.keys():
-        if dfs(fAirport):
-            return output
+# def reconstructItinerary(tickets):
+#     # Create the adjacent list
+#     fromMap = {}
+#     for ticket in tickets:
+#         fAirport, tAirport = ticket
+#         fromMap[fAirport] = fromMap.get(fAirport, [])
+#         fromMap[fAirport].append(tAirport)
+#
+#     # Sort the adjacent list
+#     for fAirport in fromMap.keys():
+#         fromMap[fAirport].sort()
+#
+#     # Dfs
+#     def dfs(fAirport):
+#         returnString.append(fAirport)
+#         if len(visited) == len(fromMap.keys()) and len(active) == len(tickets):
+#             output = [x for x in returnString]
+#             return True
+#         visited.add(fAirport)
+#         for tAirport in fromMap[fAirport]:
+#             if tAirport not in active:
+#                 active.append(tAirport)
+#                 if dfs(tAirport):
+#                     return True
+#                 active.remove(tAirport)
+#         returnString.remove(fAirport)
+#         return False
+#
+#     visited = set()
+#     # active = ['JFK']
+#     active = 1
+#     returnString = []
+#     output = []
+#     for fAirport in fromMap.keys():
+#         if dfs(fAirport):
+#             return output
 
 def findRedundantConnection(edges):
     """
@@ -376,18 +384,90 @@ def findRedundantConnection(edges):
 # print(findRedundantConnection([[1,5],[3,4],[3,5],[4,5],[2,4]]))
 
 
+def reconstructItinerary(tickets):
+    adjAirports = {}
+    predecessor = {}
+
+    for ticket in tickets:
+        fAirport, tAirport = ticket
+        adjAirports[fAirport] = adjAirports.get(fAirport, [])
+        adjAirports[tAirport] = adjAirports.get(tAirport, [])
+        adjAirports[fAirport].append(tAirport)
+
+    for airport in adjAirports.keys():
+        adjAirports[airport].sort()
+        predecessor[airport] = None
+
+    ticketCnt = 0
+    visitAirports = set()
+    answer = ['JFK']
+
+    def dfs(v, ticketCnt):
+        if ticketCnt >= len(tickets) and len(visitAirports) >= len(adjAirports.keys()):
+            return ticketCnt
+
+        answer.append(airport)
+
+        out = 301
+        for adjNode in adjAirports[v]:
+            if adjNode not in visitAirports or not predecessor[adjNode] or predecessor[adjNode] != v:
+                # temp = predecessor[adjNode]
+                predecessor[adjNode] = v
+                out = min(out, dfs(adjNode, ticketCnt + 1))
+        return out
+
+    dfs("JFK", 0)
+    return answer
+
+def wordsearch(board, word):
+    """
+    :type board: List[List[str]]
+    :type word: str
+    :rtype: bool
+    """
+    ROWS, COLS = len(board), len(board[0])
+
+    def dfs(i, j, s, wIdx):
+        if s == word: return True
+        if not 0 <= i < ROWS or not 0 <= j < COLS or not wIdx < len(word) or board[i][j] == -1:
+            return False
+        if board[i][j] is not word[wIdx]:
+            return False
+        s += board[i][j]
+        wIdx += 1
+        board[i][j], tmp = board[i][j], -1
+        val = dfs(i + 1, j, s, wIdx) or dfs(i - 1, j, s, wIdx) or dfs(i, j + 1, s, wIdx) or dfs(i, j - 1, s, wIdx)
+        board[i][j] = tmp
+        return val
+
+    for r in range(ROWS):
+        for c in range(COLS):
+            if board[r][c] == word[0]:
+                if dfs(r, c, "", 0):
+                    print(board)
+                    return True
+    return False
+
+
+#print(reconstructItinerary([["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]))
+
+# board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+# word = "ABCCED"
+# print(wordsearch(board, word))
+
+
 
 
 
 # Reconstruct Itinerary
-tickets = [["JFK", "ATL"],["ATL", "MVH"], ["MVH", "ATL"], ["MVH", "SUH"], ["SUH", "JFK"], ["SUH", "MVH"], ["ATL", "SUH"]]
-print(reconstructItinerary(tickets))
+# tickets = [["JFK", "ATL"],["ATL", "MVH"], ["MVH", "ATL"], ["MVH", "SUH"], ["SUH", "JFK"], ["SUH", "MVH"], ["ATL", "SUH"]]
+# print(reconstructItinerary(tickets))
 
-# Djikstra's call
-# times = [[1,2,1],[2,3,7],[1,3,4],[2,1,2]]
-# n = 3
-# k = 2
-# print(djikstra(times, n, k))
+#Djikstra's call
+times = [[1,2,1],[2,3,7],[1,3,4],[2,1,2]]
+n = 3
+k = 2
+print(djikstra(times, n, k))
 
 # Max Area of Island Call
 # grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],

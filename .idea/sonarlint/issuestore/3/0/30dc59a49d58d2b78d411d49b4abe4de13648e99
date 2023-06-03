@@ -1,0 +1,33 @@
+
+ˆpython:S1192"kDefine a constant instead of duplicating this literal "Stack is empty. Add a value before peeking" 3 times.(è§Ÿ·ÿÿÿÿÿ
+python:S1192"rDefine a constant instead of duplicating this literal "Stack is empty. Add a value before popping values" 3 times.(—ùáùÿÿÿÿ
+gpython:S100"KRename method "isEmpty" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çõ¹ùÿÿÿÿ
+5python:S3626:"Remove this redundant return.(ÙãŞŸ
+npython:S117<"WRename this local variable "minVal" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾íš
+qpython:S117="ZRename this local variable "newMinVal" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¦€¤
+gpython:S100F"KRename method "isEmpty" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çõ¹ùÿÿÿÿ
+;python:S125W"Remove this commented out code.(ÒÜÜ°şÿÿÿÿ
+lpython:S116q"URename this field "totalElements" to match the regular expression ^[_a-z][_a-z0-9]*$.(û÷Û
+ppython:S116p"TRename this field "stack3Length" to match the regular expression ^[_a-z][_a-z0-9]*$.(¬´ı¹ÿÿÿÿÿ
+npython:S116m"RRename this field "noOfStacks" to match the regular expression ^[_a-z][_a-z0-9]*$.(±‡Îäşÿÿÿÿ
+kpython:S116o"TRename this field "stack2Length" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ò÷à°
+ppython:S116n"TRename this field "stack1Length" to match the regular expression ^[_a-z][_a-z0-9]*$.(Îş”ûÿÿÿÿ
+mpython:S117h"VRename this parameter "noOfStacks" to match the regular expression ^[_a-z][a-z0-9_]*$.(š°Åë
+jpython:S117t"TRename this parameter "stackNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö¡Ê
+ipython:S100t"SRename method "_getStackLength" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ö¡Ê
+kpython:S117|"TRename this parameter "stackNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÈ±µ
+jpython:S100|"SRename method "_setStackTopVal" to match the regular expression ^[a-z_][a-z0-9_]*$.(ĞÈ±µ
+lpython:S117„"TRename this parameter "stackNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı›²•
+kpython:S100„"SRename method "_incStackLength" to match the regular expression ^[a-z_][a-z0-9_]*$.(ı›²•
+qpython:S117Œ"TRename this parameter "stackNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çşù¼üÿÿÿÿ
+ppython:S100Œ"SRename method "_decStackLength" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çşù¼üÿÿÿÿ
+tpython:S117–"WRename this local variable "curIdx" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥°ïÏøÿÿÿÿ
+lpython:S117”"TRename this parameter "stackNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(Øñ°í
+tpython:S117ª"WRename this local variable "curIdx" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥°ïÏøÿÿÿÿ
+rpython:S117±"ZRename this local variable "newTopIdx" to match the regular expression ^[_a-z][a-z0-9_]*$.(å©—Ç
+qpython:S117¦"TRename this parameter "stackNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŸÔÑ‡ÿÿÿÿÿ
+qpython:S117µ"TRename this parameter "stackNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(—©šÉøÿÿÿÿ
+hpython:S100¿"KRename method "isEmpty" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çõ¹ùÿÿÿÿ
+7python:S125Å"Remove this commented out code.(¹³â¤
+hpython:S100ò"KRename method "isEmpty" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çõ¹ùÿÿÿÿ
+7python:S125÷"Remove this commented out code.(–ãîÏ
